@@ -24,26 +24,23 @@ workflows:
     max_build_duration: 60
     instance_type: mac_mini_m2
     integrations:
-      app_store_connect: appleapi          # <- same integration name as in your StrikeScore yaml
+      app_store_connect: appleapi
     environment:
-      xcode: latest                         # Apple requires Xcode 26 or later for uploads
+      xcode: latest
       groups:
-        - pitchsong               # <- same variable group name as in your StrikeScore yaml
+        - pitchsong        # must contain CERTIFICATE_PRIVATE_KEY
       vars:
         XCODE_PROJECT: "Pitchsong.xcodeproj"
         XCODE_SCHEME: "Pitchsong"
+        BUNDLE_ID: "com.kidblunt.pitchsong"
     scripts:
-      - name: Initialize keychain and add signing certificate
+      - name: Set up code signing
         script: |
           keychain initialize
-          echo "$CERTIFICATE_P12_BASE64" | base64 --decode > /tmp/certificate.p12
-          keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password "$CERTIFICATE_PASSWORD"
-
-      - name: Set up provisioning profile on the Xcode project
-        script: |
-          echo "$PROVISIONING_PROFILE_BASE64" | base64 --decode > /tmp/Pitchsong_App_Store_Profile.mobileprovision
-          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          cp /tmp/Pitchsong_App_Store_Profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+          app-store-connect fetch-signing-files "$BUNDLE_ID" \
+            --type IOS_APP_STORE \
+            --create
+          keychain add-certificates
           xcode-project use-profiles
 
       - name: Increment build number
