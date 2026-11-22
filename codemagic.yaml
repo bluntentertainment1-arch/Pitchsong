@@ -28,7 +28,7 @@ workflows:
     environment:
       xcode: latest                         # Apple requires Xcode 26 or later for uploads
       groups:
-        - signing_credentials               # <- same variable group name as in your StrikeScore yaml
+        - pitchsong               # <- same variable group name as in your StrikeScore yaml
       vars:
         XCODE_PROJECT: "Pitchsong.xcodeproj"
         XCODE_SCHEME: "Pitchsong"
