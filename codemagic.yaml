@@ -1,0 +1,68 @@
+workflows:
+  # Run this first. It only compiles the app (no signing), so compile errors show up quickly.
+  ios-build-check:
+    name: Pitchsong build check (no signing)
+    max_build_duration: 30
+    instance_type: mac_mini_m2
+    environment:
+      xcode: latest
+      vars:
+        XCODE_PROJECT: "Pitchsong.xcodeproj"
+        XCODE_SCHEME: "Pitchsong"
+    scripts:
+      - name: Build for iPhone and iPad simulators
+        script: |
+          xcodebuild build \
+            -project "$XCODE_PROJECT" \
+            -scheme "$XCODE_SCHEME" \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO
+
+  ios-release:
+    name: Pitchsong iOS release (TestFlight)
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    integrations:
+      app_store_connect: Codemagic          # <- same integration name as in your StrikeScore yaml
+    environment:
+      xcode: latest                         # Apple requires Xcode 26 or later for uploads
+      groups:
+        - signing_credentials               # <- same variable group name as in your StrikeScore yaml
+      vars:
+        XCODE_PROJECT: "Pitchsong.xcodeproj"
+        XCODE_SCHEME: "Pitchsong"
+    scripts:
+      - name: Initialize keychain and add signing certificate
+        script: |
+          keychain initialize
+          echo "$CERTIFICATE_P12_BASE64" | base64 --decode > /tmp/certificate.p12
+          keychain add-certificates --certificate /tmp/certificate.p12 --certificate-password "$CERTIFICATE_PASSWORD"
+
+      - name: Set up provisioning profile on the Xcode project
+        script: |
+          echo "$PROVISIONING_PROFILE_BASE64" | base64 --decode > /tmp/Pitchsong_App_Store_Profile.mobileprovision
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp /tmp/Pitchsong_App_Store_Profile.mobileprovision ~/Library/MobileDevice/Provisioning\ Profiles/
+          xcode-project use-profiles
+
+      - name: Increment build number
+        script: |
+          BUILD_NUMBER=$(date +%s)
+          agvtool new-version -all "$BUILD_NUMBER"
+          echo "Build number set to: $BUILD_NUMBER"
+
+      - name: Build iOS IPA
+        script: |
+          xcode-project build-ipa \
+            --project "$XCODE_PROJECT" \
+            --scheme "$XCODE_SCHEME" \
+            --config Release
+
+    artifacts:
+      - build/ios/ipa/*.ipa
+
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
