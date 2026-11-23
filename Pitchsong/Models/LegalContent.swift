@@ -8,7 +8,7 @@ struct LegalSection {
 }
 
 enum LegalContent {
-    static let updated = "November 22, 2026"
+    static let updated = "November 23, 2026"
 
     static let privacy: [LegalSection] = [
         LegalSection(
@@ -19,7 +19,7 @@ enum LegalContent {
         LegalSection(
             heading: "The short version",
             paragraphs: [],
-            bullets: ["No account, no sign-in and no ads.", "No analytics, no tracking and no third-party SDKs in the app.", "We run no server for this app. The details you type into the order form stay on your device unless you choose to send them to us.", "We never sell your personal information."]
+            bullets: ["No account, no sign-in and no ads.", "Anonymous usage statistics (Google Firebase Analytics) that you can switch off in Settings. No advertising and no tracking across other apps.", "We run no server for this app. The details you type into the order form stay on your device unless you choose to send them to us.", "We never sell your personal information."]
         ),
         LegalSection(
             heading: "Information you enter in the app",
@@ -29,6 +29,11 @@ enum LegalContent {
         LegalSection(
             heading: "Information you send us",
             paragraphs: ["If you tap Send on WhatsApp, the app opens WhatsApp with a message that contains the details above and the package you chose. Nothing is sent until you press send in WhatsApp. WhatsApp is run by Meta and handles messages under its own terms and privacy policy. If you email us, your email provider handles the message in the same way."],
+            bullets: []
+        ),
+        LegalSection(
+            heading: "Usage statistics (analytics)",
+            paragraphs: ["The app uses Google Firebase Analytics to understand how the app is used, for example which screens and packages are popular, how many people send an order and which device model and app version they use. It records events such as choosing a package or tapping Send, plus a random app-instance identifier, your approximate region and basic device details (such as device model, operating system version and language). Google handles this data for us under its own terms and privacy policy.", "We do not record your artist name, song title, song link or anything you type into the order form in analytics. We do not use the advertising identifier (IDFA), we do not show ads, and we do not track you across other companies’ apps or websites.", "You can switch usage statistics off at any time in Settings > Share usage statistics."],
             bullets: []
         ),
         LegalSection(
@@ -48,7 +53,7 @@ enum LegalContent {
         ),
         LegalSection(
             heading: "Sharing",
-            paragraphs: ["We share your song details only as needed to carry out the campaign you ordered, and with service providers such as WhatsApp and email as described above. We do not sell your personal information or share it for advertising."],
+            paragraphs: ["We share your song details only as needed to carry out the campaign you ordered, and with service providers such as WhatsApp, email and Google (analytics) as described above. We do not sell your personal information or share it for advertising."],
             bullets: []
         ),
         LegalSection(

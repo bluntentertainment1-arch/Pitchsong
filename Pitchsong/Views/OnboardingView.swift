@@ -122,6 +122,7 @@ struct OnboardingView: View {
             let granted = await notifications.requestAuthorization()
             if granted {
                 remindersEnabled = true
+                Tracker.log("reminders_enabled", ["source": "onboarding"])
                 await notifications.scheduleFridayReminder()
             }
             isWorking = false

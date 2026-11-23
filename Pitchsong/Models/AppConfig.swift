@@ -7,6 +7,7 @@ enum StorageKey {
     static let installDate = "pitchsong.installDate"
     static let remindersEnabled = "pitchsong.remindersEnabled"
     static let ratePromptDone = "pitchsong.ratePromptDone"
+    static let analyticsEnabled = "pitchsong.analyticsEnabled"
 }
 
 enum AppConfig {

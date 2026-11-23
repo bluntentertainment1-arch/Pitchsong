@@ -6,7 +6,7 @@ covers what Apple asks for and removes the usual reasons for rejection.
 ## 1. Build requirements
 - Apple requires apps uploaded since 28 April 2026 to be built with **Xcode 26 or later** (iOS 26 SDK).
   Codemagic's `xcode: latest` does this. The project is set up for Xcode 26.
-- The app has **no third-party packages**, so there is no Podfile and no Podfile.lock. CocoaPods'
+- The only package is **Firebase Analytics**, added with Swift Package Manager (no Podfile and no Podfile.lock). CocoaPods'
   Specs repo becomes read-only on 2 December 2026, which is another reason not to add it.
 - Privacy manifest: included (`Pitchsong/PrivacyInfo.xcprivacy`). It declares no tracking, no collected
   data, and the one "required reason" API the app uses (UserDefaults, reason CA92.1).
@@ -88,7 +88,11 @@ The app has no web browser; it only opens WhatsApp, email and Instagram links.
 
 ## 7. App Privacy ("nutrition label")
 - Tracking: **No**.
-- Data collected by the app: **Data Not Collected.** The app has no server, no analytics and no SDKs.
+- Data collected by the app: **Yes, for analytics only** (Firebase Analytics). Declare:
+  - **Usage Data > Product Interaction**: Analytics purpose, linked to the user's device, not used for tracking.
+  - **Identifiers > Device ID**: Analytics purpose, linked to the user's device, not used for tracking.
+  The app does not use the advertising ID, so the Tracking answer stays **No** and no App Tracking
+  Transparency prompt is needed. Do not tick Advertising or Marketing purposes.
   Order details stay on the device unless the user chooses to send them on WhatsApp.
 
 ## 8. App Review information

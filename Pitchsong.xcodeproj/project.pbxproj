@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		4A0000000000000000000020 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4A0000000000000000000021 /* FirebaseAnalytics */; };
+		4A0000000000000000000022 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 4A0000000000000000000023 /* FirebaseCore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		4A0000000000000000000001 /* Pitchsong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pitchsong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A0000000000000000000002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -24,6 +29,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A0000000000000000000020 /* FirebaseAnalytics in Frameworks */,
+				4A0000000000000000000022 /* FirebaseCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +82,8 @@
 			);
 			name = Pitchsong;
 			packageProductDependencies = (
+				4A0000000000000000000021 /* FirebaseAnalytics */,
+				4A0000000000000000000023 /* FirebaseCore */,
 			);
 			productName = Pitchsong;
 			productReference = 4A0000000000000000000001 /* Pitchsong.app */;
@@ -104,6 +113,9 @@
 				Base,
 			);
 			mainGroup = 4A0000000000000000000005;
+			packageReferences = (
+				4A0000000000000000000024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4A0000000000000000000007 /* Products */;
@@ -263,6 +275,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4A0000000000000000000024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4A0000000000000000000021 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A0000000000000000000024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		4A0000000000000000000023 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4A0000000000000000000024 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4A000000000000000000000B /* Project object */;
 }

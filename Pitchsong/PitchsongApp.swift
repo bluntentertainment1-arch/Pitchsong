@@ -7,6 +7,7 @@ struct PitchsongApp: App {
     @AppStorage(StorageKey.darkMode) private var isDarkMode = true
 
     init() {
+        Tracker.start()
         // Must be created at launch so taps on the Friday reminder are received.
         _ = NotificationManager.shared
         AppLaunch.recordInstallDateIfNeeded()

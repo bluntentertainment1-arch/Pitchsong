@@ -1,6 +1,6 @@
 # Pitchsong by Blunt Entertainment (iPhone + iPad)
 
-SwiftUI, iOS 16 or later, built with Xcode 26. No third-party packages, no CocoaPods, no backend.
+SwiftUI, iOS 16 or later, built with Xcode 26. One package (Firebase Analytics, via Swift Package Manager), no CocoaPods, no backend.
 Bundle ID: `com.kidblunt.pitchsong`. Targeted devices: iPhone and iPad.
 
 ## Run it
@@ -13,7 +13,7 @@ Bundle ID: `com.kidblunt.pitchsong`. Targeted devices: iPhone and iPad.
 (`Pitchsong.xcodeproj/xcshareddata/xcschemes`).
 - **ios-build-check**: compiles for the simulator with no signing. Run this first.
 - **ios-release**: signs, numbers the build and sends it to TestFlight.
-Set your App Store Connect API key name and `APP_STORE_APPLE_ID` in the file.
+Signing and upload use the same variable group and App Store Connect integration as your StrikeScore app, plus a new `PITCHSONG_PROVISIONING_PROFILE_BASE64` variable.
 
 ## What is in the app
 - Splash screen, then a 4-card onboarding on the first launch only.
@@ -29,7 +29,7 @@ Set your App Store Connect API key name and `APP_STORE_APPLE_ID` in the file.
 | What | File |
 |---|---|
 | Packages and wording | `Pitchsong/Models/PromotionData.swift` |
-| WhatsApp number, email, Instagram, free form | `Pitchsong/Models/Contact.swift` |
+| WhatsApp number, email, Instagram | `Pitchsong/Models/Contact.swift` |
 | App Store ID, rating delay, share text | `Pitchsong/Models/AppConfig.swift` |
 | Friday reminder time and text | `Pitchsong/Services/NotificationManager.swift` |
 | Privacy Policy, Terms, About, Contact text | `Tools/generate_legal.py` (then run it) |

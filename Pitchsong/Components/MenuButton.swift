@@ -98,6 +98,7 @@ struct ShareAppRow: View {
 struct RateAppRow: View {
     var body: some View {
         Button {
+            Tracker.log("rate_app_tapped")
             ReviewManager.rateApp()
         } label: {
             InfoRow(

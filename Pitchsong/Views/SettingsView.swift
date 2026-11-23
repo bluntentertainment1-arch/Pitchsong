@@ -6,6 +6,7 @@ struct SettingsView: View {
     @AppStorage(StorageKey.darkMode) private var isDarkMode = true
     @AppStorage(StorageKey.remindersEnabled) private var remindersEnabled = false
     @ObservedObject private var notifications = NotificationManager.shared
+    @AppStorage(StorageKey.analyticsEnabled) private var analyticsEnabled = true
     @State private var showDeniedAlert = false
 
     private var appVersion: String {
@@ -58,6 +59,23 @@ struct SettingsView: View {
                     .appFont(12)
                     .foregroundColor(Theme.faint)
                     .padding(.horizontal, 6)
+
+                section("Privacy") {
+                    Toggle(isOn: Binding(
+                        get: { analyticsEnabled },
+                        set: { analyticsEnabled = $0; Tracker.setEnabled($0) }
+                    )) {
+                        InfoRow(
+                            icon: "chart.bar.fill",
+                            color: Theme.cyanText,
+                            title: "Share usage statistics",
+                            subtitle: "Anonymous app usage helps us improve Pitchsong",
+                            showsChevron: false
+                        )
+                    }
+                    .toggleStyle(SwitchToggleStyle(tint: Theme.magenta))
+                    .padding(.trailing, 12)
+                }
 
                 section("About") {
                     NavigationLink {
@@ -140,6 +158,7 @@ struct SettingsView: View {
                 }
                 if notifications.isAuthorized {
                     remindersEnabled = true
+                    Tracker.log("reminders_enabled", ["source": "settings"])
                     await notifications.scheduleFridayReminder()
                 } else {
                     remindersEnabled = false

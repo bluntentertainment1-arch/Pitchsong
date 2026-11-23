@@ -18,7 +18,7 @@ import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
-UPDATED = "November 22, 2026"
+UPDATED = "November 23, 2026"
 COMPANY = "Blunt Entertainment"
 EMAIL = "bluntentertainment1@gmail.com"
 WHATSAPP = "+234 708 793 4907"
@@ -39,7 +39,7 @@ PRIVACY = [
     ("The short version",
      [],
      ["No account, no sign-in and no ads.",
-      "No analytics, no tracking and no third-party SDKs in the app.",
+      "Anonymous usage statistics (Google Firebase Analytics) that you can switch off in Settings. No advertising and no tracking across other apps.",
       "We run no server for this app. The details you type into the order form stay on your device unless you choose to send them to us.",
       "We never sell your personal information."]),
     ("Information you enter in the app",
@@ -47,6 +47,11 @@ PRIVACY = [
      []),
     ("Information you send us",
      ["If you tap Send on WhatsApp, the app opens WhatsApp with a message that contains the details above and the package you chose. Nothing is sent until you press send in WhatsApp. WhatsApp is run by Meta and handles messages under its own terms and privacy policy. If you email us, your email provider handles the message in the same way."] ,
+     []),
+    ("Usage statistics (analytics)",
+     ["The app uses Google Firebase Analytics to understand how the app is used, for example which screens and packages are popular, how many people send an order and which device model and app version they use. It records events such as choosing a package or tapping Send, plus a random app-instance identifier, your approximate region and basic device details (such as device model, operating system version and language). Google handles this data for us under its own terms and privacy policy.",
+      "We do not record your artist name, song title, song link or anything you type into the order form in analytics. We do not use the advertising identifier (IDFA), we do not show ads, and we do not track you across other companies’ apps or websites.",
+      "You can switch usage statistics off at any time in Settings > Share usage statistics."],
      []),
     ("Content loaded from the internet",
      ["The Home screen shows an example screenshot hosted on an image service (postimg.cc). Like any web image, loading it lets that host see your IP address and basic device details. The app does not send any other data."],
@@ -60,7 +65,7 @@ PRIVACY = [
       "deliver the promotion you ordered, which includes sharing your song link and basic details with playlist curators, creators, music blogs and platforms;",
       "give support, keep business records and meet legal duties."]),
     ("Sharing",
-     ["We share your song details only as needed to carry out the campaign you ordered, and with service providers such as WhatsApp and email as described above. We do not sell your personal information or share it for advertising."],
+     ["We share your song details only as needed to carry out the campaign you ordered, and with service providers such as WhatsApp, email and Google (analytics) as described above. We do not sell your personal information or share it for advertising."],
      []),
     ("How long we keep it",
      ["Messages and form submissions are kept for as long as needed to run your campaign, answer questions and keep business records, then deleted or anonymised. Information saved in the app stays on your device until you delete it."],

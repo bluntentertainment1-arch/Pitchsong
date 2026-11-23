@@ -423,6 +423,7 @@ struct SubmitSongView: View {
                 categoryTitle: package.category.chipTitle
             )
         )
+        Tracker.log("order_sent", ["package_id": package.id, "category": package.category.rawValue])
         lastSentPackageName = package.name
         if let url = Contact.whatsappURL(message: message) {
             openURL(url)

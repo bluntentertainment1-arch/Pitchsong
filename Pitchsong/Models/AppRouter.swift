@@ -12,6 +12,7 @@ final class AppRouter: ObservableObject {
     @Published var showMenu = false
 
     func startOrder(_ package: PromoPackage) {
+        Tracker.log("package_selected", ["package_id": package.id, "category": package.category.rawValue])
         preselectedPackageID = package.id
         showMenu = false
         tab = .submit
