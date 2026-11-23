@@ -60,7 +60,6 @@ How it works
 3. We confirm the price and details, then run your campaign.
 
 Also in the app
-• Free song submission form
 • My Requests: keep track of the orders you started
 • Optional Friday reminder when new playlists are open for pitching
 • Light and dark mode
@@ -85,15 +84,12 @@ simulators. Good screens: Home, Packages, Submit, Menu, light mode, onboarding.
 ## 6. Age rating (questionnaire)
 Answer "None" to all content questions (violence, sexual content, gambling, horror, drugs, medical,
 mature themes, user-generated content, unrestricted web access). Expected rating: **4+**.
-The free form opens a single fixed page; it is not general web browsing.
+The app has no web browser; it only opens WhatsApp, email and Instagram links.
 
 ## 7. App Privacy ("nutrition label")
 - Tracking: **No**.
 - Data collected by the app: **Data Not Collected.** The app has no server, no analytics and no SDKs.
   Order details stay on the device unless the user chooses to send them on WhatsApp.
-- Check first: the free submission form is on tally.so and I have not seen which fields it asks for.
-  If it collects names or emails and you want to be extra careful, declare **Contact Info** as
-  "collected, linked to the user, not used for tracking, purpose: App Functionality".
 
 ## 8. App Review information
 - Sign-in required: **No** (there are no accounts).
@@ -131,9 +127,9 @@ Possible review questions:
 
 ## 11. Before you press Submit
 1. Create the app record, then paste the numeric Apple ID into `Pitchsong/Models/AppConfig.swift`
-   (`appStoreID`) and into `codemagic.yaml` (`APP_STORE_APPLE_ID`).
+   (`appStoreID`).
 2. Upload `Website/*.html`, and fill in the three URLs above.
 3. Run the **ios-build-check** workflow in Codemagic first, then **ios-release** for TestFlight.
 4. Test on a real iPhone and a real iPad: onboarding, menu, dark/light switch, notification permission,
-   Friday reminder (Settings > toggle), WhatsApp order, free form.
+   Friday reminder (Settings > toggle), WhatsApp order.
 5. Add screenshots, answer the questionnaires, attach the build, submit.
