@@ -3,9 +3,9 @@ workflows:
   ios-build-check:
     name: Pitchsong build check (no signing)
     max_build_duration: 30
-    instance_type: mac_mini_m1
+    instance_type: mac_mini_m2
     environment:
-      xcode: latest
+      xcode: 27.1
       vars:
         XCODE_PROJECT: "Pitchsong.xcodeproj"
         XCODE_SCHEME: "Pitchsong"
