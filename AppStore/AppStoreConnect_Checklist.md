@@ -113,8 +113,9 @@ Changed from the website text, on purpose:
 - "guaranteed placements", "real streams" and "viral" promises removed. Streams are "Est." and every
   package says results vary. (Apple rejects misleading claims, guideline 2.3.)
 - Badges "BEST VALUE", "MOST POPULAR", "PREMIUM CHOICE" became "RECOMMENDED", "POPULAR", "TOP TIER".
-- Package **names** (for example "VIRAL COMBO", "SUPERSTAR PACKAGE") still match your price list so
-  orders map to it. If review pushes back on those names, rename them in `PromotionData.swift`.
+- Package **names** were renamed to avoid hype words: SUPERSTAR > ADVANCED, A-LIST > ULTIMATE,
+  TIKTOK TRENDING > TIKTOK RISING, INSTAGRAM VIRAL > INSTAGRAM BOOST, VIRAL COMBO > MOMENTUM COMBO,
+  GATEKEEPERS COMBO > CURATOR COMBO. Keep your price list in step with these names.
 
 Possible review questions:
 - **Payment outside the app (3.1.1 / 3.1.3):** allowed for services consumed outside the app, which is
