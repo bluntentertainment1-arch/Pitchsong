@@ -3,7 +3,6 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject private var router: AppRouter
     @Environment(\.openURL) private var openURL
-    @State private var showFreeForm = false
     @Environment(\.horizontalSizeClass) private var sizeClass
     @ScaledMetric(relativeTo: .largeTitle) private var baseHero: CGFloat = 38
 
@@ -36,7 +35,6 @@ struct HomeView: View {
                     howItWorks
                     why
                     proof
-                    freeSubmission
                     contactCTA
                     disclaimer
                 }
@@ -47,10 +45,6 @@ struct HomeView: View {
             }
             .background(AppBackground())
             .toolbar(.hidden, for: .navigationBar)
-        }
-        .sheet(isPresented: $showFreeForm) {
-            SafariView(url: Contact.freeSubmissionURL)
-                .ignoresSafeArea()
         }
     }
 
@@ -188,28 +182,6 @@ struct HomeView: View {
             }
             .card(padding: 14)
         }
-    }
-
-    private var freeSubmission: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack(spacing: 8) {
-                Image(systemName: "gift.fill").foregroundColor(Theme.cyanText)
-                Text("Free song submission")
-                    .appFont(16, weight: .bold)
-                    .foregroundColor(Theme.text)
-            }
-            Text("Not ready for a package? Send your song for free. Placement is not guaranteed. For a full campaign, pick any of our packages.")
-                .appFont(13)
-                .foregroundColor(Theme.muted)
-                .fixedSize(horizontal: false, vertical: true)
-            Button {
-                showFreeForm = true
-            } label: {
-                Text("Open free submission form")
-            }
-            .buttonStyle(GhostButtonStyle())
-        }
-        .card(padding: 18)
     }
 
     private var contactCTA: some View {

@@ -77,8 +77,6 @@ struct LegalDocumentView: View {
 
 struct ContactUsView: View {
     @Environment(\.openURL) private var openURL
-    @State private var showFreeForm = false
-
     private var emailURL: URL? {
         URL(string: "mailto:\(Contact.email)?subject=Pitchsong%20support")
     }
@@ -116,14 +114,6 @@ struct ContactUsView: View {
                                 title: "Instagram", subtitle: Contact.instagramHandle)
                     }
                     .buttonStyle(.plain)
-                    Divider().overlay(Theme.line)
-                    Button {
-                        showFreeForm = true
-                    } label: {
-                        InfoRow(icon: "gift.fill", color: Theme.amberText,
-                                title: "Free song submission", subtitle: "Placement is not guaranteed")
-                    }
-                    .buttonStyle(.plain)
                 }
                 .card(padding: 4)
 
@@ -157,9 +147,5 @@ struct ContactUsView: View {
         .navigationTitle("Contact Us")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.visible, for: .navigationBar)
-        .sheet(isPresented: $showFreeForm) {
-            SafariView(url: Contact.freeSubmissionURL)
-                .ignoresSafeArea()
-        }
     }
 }

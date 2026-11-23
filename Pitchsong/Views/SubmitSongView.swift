@@ -20,7 +20,6 @@ struct SubmitSongView: View {
     @State private var selectedPackage: PromoPackage? = nil
 
     @State private var showErrors = false
-    @State private var showFreeForm = false
     @State private var lastSentPackageName = ""
 
     var body: some View {
@@ -62,10 +61,6 @@ struct SubmitSongView: View {
             DispatchQueue.main.async {
                 router.preselectedPackageID = nil
             }
-        }
-        .sheet(isPresented: $showFreeForm) {
-            SafariView(url: Contact.freeSubmissionURL)
-                .ignoresSafeArea()
         }
     }
 
@@ -162,22 +157,6 @@ struct SubmitSongView: View {
                 Text("Continue")
             }
             .buttonStyle(PrimaryButtonStyle())
-
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Just want to send a song for free?")
-                    .appFont(14, weight: .bold)
-                    .foregroundColor(Theme.text)
-                Text("The free form is open to everyone. Placement is not guaranteed.")
-                    .appFont(12.5)
-                    .foregroundColor(Theme.muted)
-                Button {
-                    showFreeForm = true
-                } label: {
-                    Text("Open free submission form")
-                }
-                .buttonStyle(GhostButtonStyle())
-            }
-            .card(padding: 16)
         }
     }
 
