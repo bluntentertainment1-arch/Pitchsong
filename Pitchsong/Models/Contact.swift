@@ -13,9 +13,6 @@ enum Contact {
     static let instagramHandle = "@bluntt_kidd"
     static let instagramURL = URL(string: "https://instagram.com/bluntt_kidd")!
 
-    /// Free song submission form (same Tally form as the website).
-    static let freeSubmissionURL = URL(string: "https://tally.so/r/QKJAlG")!
-
     // MARK: WhatsApp
 
     private static func encode(_ text: String) -> String {

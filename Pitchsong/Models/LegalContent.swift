@@ -28,7 +28,7 @@ enum LegalContent {
         ),
         LegalSection(
             heading: "Information you send us",
-            paragraphs: ["If you tap Send on WhatsApp, the app opens WhatsApp with a message that contains the details above and the package you chose. Nothing is sent until you press send in WhatsApp. WhatsApp is run by Meta and handles messages under its own terms and privacy policy. If you email us, your email provider handles the message in the same way.", "The free submission form opens in an in-app browser and is hosted by Tally (tally.so). Whatever you type into that form reaches us through Tally and is also handled under Tally’s privacy policy."],
+            paragraphs: ["If you tap Send on WhatsApp, the app opens WhatsApp with a message that contains the details above and the package you chose. Nothing is sent until you press send in WhatsApp. WhatsApp is run by Meta and handles messages under its own terms and privacy policy. If you email us, your email provider handles the message in the same way."],
             bullets: []
         ),
         LegalSection(
@@ -48,7 +48,7 @@ enum LegalContent {
         ),
         LegalSection(
             heading: "Sharing",
-            paragraphs: ["We share your song details only as needed to carry out the campaign you ordered, and with service providers such as WhatsApp, Tally and email as described above. We do not sell your personal information or share it for advertising."],
+            paragraphs: ["We share your song details only as needed to carry out the campaign you ordered, and with service providers such as WhatsApp and email as described above. We do not sell your personal information or share it for advertising."],
             bullets: []
         ),
         LegalSection(
@@ -116,7 +116,7 @@ enum LegalContent {
         ),
         LegalSection(
             heading: "Other companies",
-            paragraphs: ["Spotify, TikTok, Instagram, WhatsApp, Tally and Apple are separate companies. Pitchsong is not affiliated with, endorsed by or sponsored by them. Their names are used only to describe the services our promotion relates to."],
+            paragraphs: ["Spotify, TikTok, Instagram, WhatsApp and Apple are separate companies. Pitchsong is not affiliated with, endorsed by or sponsored by them. Their names are used only to describe the services our promotion relates to."],
             bullets: []
         ),
         LegalSection(
@@ -183,11 +183,6 @@ enum LegalContent {
         LegalSection(
             heading: "Support and privacy requests",
             paragraphs: ["Email bluntentertainment1@gmail.com for app problems, data requests or anything else. If it is about an order, please include your artist name and song title."],
-            bullets: []
-        ),
-        LegalSection(
-            heading: "Free song submission",
-            paragraphs: ["You can send a song for free using our submission form. Placement is not guaranteed."],
             bullets: []
         ),
     ]
