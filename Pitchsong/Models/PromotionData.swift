@@ -113,9 +113,9 @@ enum PromotionCatalog {
         p(.spotify, "exposure", "EXPOSURE PACKAGE",
           ["24 Playlists", "Est. 20,000 streams", "More reach and audience engagement"],
           badge: "POPULAR"),
-        p(.spotify, "superstar", "SUPERSTAR PACKAGE",
+        p(.spotify, "superstar", "ADVANCED PACKAGE",
           ["25 Playlists", "Est. 50,000 streams", "Large-scale playlist promotion"]),
-        p(.spotify, "alist", "A-LIST PACKAGE",
+        p(.spotify, "alist", "ULTIMATE PACKAGE",
           ["30 Playlists", "Est. 100,000 streams", "Our biggest playlist campaign"],
           badge: "TOP TIER"),
 
@@ -127,7 +127,7 @@ enum PromotionCatalog {
         p(.tiktok, "professional", "TIKTOK PROFESSIONAL PACKAGE",
           ["100 Videos", "Independent TikTok creators", "Organic promotion"],
           badge: "POPULAR"),
-        p(.tiktok, "trending", "TIKTOK TRENDING PACKAGE",
+        p(.tiktok, "trending", "TIKTOK RISING PACKAGE",
           ["250 Videos", "Independent TikTok creators", "Organic promotion"]),
         p(.tiktok, "discovery", "TIKTOK DISCOVERY PACKAGE",
           ["500 Videos", "Independent TikTok creators", "Organic promotion"]),
@@ -142,7 +142,7 @@ enum PromotionCatalog {
           badge: "POPULAR"),
         p(.instagram, "professional", "INSTAGRAM PROFESSIONAL",
           ["200 sound uses", "Independent Instagram creators", "Reels & Posts"]),
-        p(.instagram, "viral", "INSTAGRAM VIRAL",
+        p(.instagram, "viral", "INSTAGRAM BOOST",
           ["500 sound uses", "Independent Instagram creators", "Reels & Posts"]),
 
         // ---------- Blogs (6) ----------
@@ -168,11 +168,11 @@ enum PromotionCatalog {
           badge: "POPULAR"),
         p(.combo, "pro", "PRO COMBO",
           ["100 TikTok videos", "200 Instagram uses", "24 Spotify playlists (est. 20k streams)", "10 blog posts"]),
-        p(.combo, "viral", "VIRAL COMBO",
+        p(.combo, "viral", "MOMENTUM COMBO",
           ["200 TikTok videos", "300 Instagram uses", "25 Spotify playlists (est. 30k streams)", "10 blog posts"]),
         p(.combo, "elite", "ELITE COMBO",
           ["500 TikTok videos", "500 Instagram uses", "25 Spotify playlists (est. 50k streams)", "15 blog posts"]),
-        p(.combo, "gatekeepers", "GATEKEEPERS COMBO",
+        p(.combo, "gatekeepers", "CURATOR COMBO",
           ["1000 TikTok videos", "500 Instagram uses", "30 Spotify playlists (est. 100k streams)", "25 blog posts"])
     ]
 
