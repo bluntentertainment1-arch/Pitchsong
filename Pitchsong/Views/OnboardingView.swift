@@ -52,7 +52,7 @@ struct OnboardingView: View {
             VStack(spacing: 16) {
                 HStack {
                     Spacer()
-                    Button("Skip") { onFinish() }
+                    Button("Skip") { withAnimation(.easeInOut) { page = cards.count - 1 } }
                         .appFont(15, weight: .semibold)
                         .foregroundColor(Theme.muted)
                         .opacity(isLast ? 0 : 1)
@@ -78,7 +78,7 @@ struct OnboardingView: View {
                         Button {
                             enableReminders()
                         } label: {
-                            Label("Turn on reminders", systemImage: "bell.fill")
+                            Label("Turn on notifications", systemImage: "bell.fill")
                         }
                         .buttonStyle(PrimaryButtonStyle())
                         .disabled(isWorking)
